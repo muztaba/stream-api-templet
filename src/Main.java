@@ -1,7 +1,6 @@
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -21,6 +20,16 @@ public class Main {
                         (o, n) -> o, // For duplicate key
                         LinkedHashMap::new
                 ));
+
+        // average of a int array
+        int[] a = {1, 2, 33, 44, 5, 5};
+        OptionalDouble avg = Arrays.stream(a)
+                .average();
+
+           // other way
+        double doubleAvg = IntStream.of(a)
+                .summaryStatistics()
+                .getAverage();
     }
 }
 
