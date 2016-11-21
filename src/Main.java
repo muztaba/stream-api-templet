@@ -13,7 +13,7 @@ public class Main {
         Map<String, Integer> map = Util.mapInit();
         Map<String, Integer> sortedMapByValue = map.entrySet()
                 .stream()
-                .sorted(Comparator.comparing(Map.Entry::getValue))
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())) //reverse order
                 .collect(Collectors.toMap(
                         Map.Entry::getKey,
                         Map.Entry::getValue,
