@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -39,6 +40,13 @@ public class Main {
                 .max(Comparator.comparing(Map.Entry::getValue))
                 .get()
                 .getKey();
+
+        // Make frequency map from 2-D array
+        int[][] twoDArray = {{1, 3, 4}, {1, 3, 5}, {3, 4, 6}};
+        Map<Integer, Long> m = Stream.of(twoDArray)
+                .flatMapToInt(IntStream::of)
+                .boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 }
 
